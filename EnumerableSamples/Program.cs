@@ -57,27 +57,58 @@ Console.WriteLine("=======================");
 #endregion
 
 #region Dictionary2
-Console.WriteLine("*** Dictionary<TKey, TValue> ***");
-var products = new Dictionary<int, Product>
-{
-    { 1, new Product { Id = 1, Name = "Coke", Price = 2.15M } },
-    { 2, new Product { Id = 2, Name = "Milk", Price = 5.58M } },
-    { 3, new Product { Id = 3, Name = "iPhone", Price = 354.99M } },
-    { 4, new Product { Id = 4, Name = "iWatch", Price = 121.99M } },
+//Console.WriteLine("*** Dictionary<TKey, TValue> ***");
+//var products = new Dictionary<int, Product>
+//{
+//    { 1, new Product { Id = 1, Name = "Coke", Price = 2.15M } },
+//    { 2, new Product { Id = 2, Name = "Milk", Price = 5.58M } },
+//    { 3, new Product { Id = 3, Name = "iPhone", Price = 354.99M } },
+//    { 4, new Product { Id = 4, Name = "iWatch", Price = 121.99M } },
+//};
 
-};
+//if (products.ContainsKey(5))
+//{
+//    products[5].Price *= 1.10M;
+//}
+//else
+//{
+//    products.Add(5, new Product { Id = 5, Price = 34.45M, Name = "Shirt" });
+//}
 
-if (products.ContainsKey(5))
+//foreach (var product in products)
+//{
+//    Console.WriteLine($"{product.Key} => {product}");
+//}
+#endregion
+
+#region LinkedList
+Console.WriteLine("*** LinkedList<T> ***");
+var numbers = new LinkedList<int>();
+numbers.AddFirst(5);
+numbers.AddLast(10);
+numbers.AddLast(20);
+numbers.AddLast(30);
+numbers.AddLast(40);
+numbers.AddLast(50);
+numbers.AddLast(60);
+numbers.AddLast(65);
+
+var node30 = numbers.Find(30);
+numbers.AddAfter(node30!, 35);
+
+var node50 = numbers.Find(50);
+numbers.Remove(node50!);
+
+var pointer = numbers.First;
+while (pointer != null)
 {
-    products[5].Price *= 1.10M;
-}
-else
-{
-    products.Add(5, new Product { Id = 5, Price = 34.45M, Name = "Shirt" });
+    Console.WriteLine(pointer.Value);
+    pointer = pointer.Next;
 }
 
-foreach (var product in products)
-{
-    Console.WriteLine($"{product.Key} => {product}");
-}
+//foreach (var number in numbers)
+//{
+//    Console.WriteLine(number);
+//}
+
 #endregion
